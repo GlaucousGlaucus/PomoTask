@@ -5,8 +5,74 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PomoTask"
         mc:Ignorable="d"
-        Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Height="600" Width="920"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        AllowsTransparency="True"
+        Background="Transparent"
+        >
+    <!-- 
+    Pallete
+    644536-b2675e-c4a381-bbd686-eef1bd
+    coffee: #644536;
+    redwood: #b2675e;
+    lion: #c4a381;
+    pistachio: #bbd686;
+    cream: #eef1bd;
+    -->
+    <Border Background="#644536"
+            CornerRadius="20">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="75"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="PomoTask"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Left"
+                       Foreground="White"
+                       FontSize="22"
+                       Margin="20,0,0,0"/>
+
+            <StackPanel Grid.Row="1">
+                <!--Home will have like intro to the app-->
+                <RadioButton Content="Home"
+                             Height="50"
+                             Foreground="White"
+                             FontSize="14"
+                             Style="{StaticResource RadioBtnTheme1}"/>
+                <RadioButton Content="Pomodoro"
+                             Height="50"
+                             Foreground="White"
+                             FontSize="14"
+                             Style="{StaticResource RadioBtnTheme1}"/>
+                <RadioButton Content="Tasks"
+                             Height="50"
+                             Foreground="White"
+                             FontSize="14"
+                             Style="{StaticResource RadioBtnTheme1}"/>
+                <RadioButton Content="Blocker History"
+                             Height="50"
+                             Foreground="White"
+                             FontSize="14"
+                             Style="{StaticResource RadioBtnTheme1}"/>
+            </StackPanel>
+
+            <TextBox Width="250"
+                     Height="40"
+                     VerticalContentAlignment="Center"
+                     HorizontalAlignment="Left"
+                     Margin="5"
+                     Grid.Column="1"
+                     Style="{StaticResource SearchBoxTheme1}"/>
+        </Grid>
+
+
+    </Border>
 </Window>

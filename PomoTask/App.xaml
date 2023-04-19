@@ -4,6 +4,11 @@
              xmlns:local="clr-namespace:PomoTask"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Themes/RadioBtnTheme1.xaml"/>
+                <ResourceDictionary Source="Themes/SearchBoxTheme1.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
