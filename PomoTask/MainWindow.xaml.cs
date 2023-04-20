@@ -24,5 +24,19 @@ namespace PomoTask
         {
             InitializeComponent();
         }
+        private void Minimize(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Minimized;
+        }
+
+        private void ExitProgram(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+        private void DragWindow(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+                this.DragMove();
+        }
     }
 }

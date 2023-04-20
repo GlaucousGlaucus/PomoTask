@@ -4,13 +4,16 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PomoTask"
+        xmlns:viewModel="clr-namespace:PomoTask.MVVM.ViewModel"
         mc:Ignorable="d"
         Height="600" Width="920"
         WindowStyle="None"
         ResizeMode="NoResize"
         AllowsTransparency="True"
-        Background="Transparent"
-        >
+        Background="Transparent">
+    <Window.DataContext>
+        <viewModel:MainViewModel/>
+    </Window.DataContext>
     <!-- 
     Pallete
     644536-b2675e-c4a381-bbd686-eef1bd
@@ -46,12 +49,15 @@
                              Height="50"
                              Foreground="White"
                              FontSize="14"
-                             Style="{StaticResource RadioBtnTheme1}"/>
+                             Style="{StaticResource RadioBtnTheme1}"
+                             IsChecked="True"
+                             Command="{Binding HomeViewCommand}"/>
                 <RadioButton Content="Pomodoro"
                              Height="50"
                              Foreground="White"
                              FontSize="14"
-                             Style="{StaticResource RadioBtnTheme1}"/>
+                             Style="{StaticResource RadioBtnTheme1}"
+                             Command="{Binding PomoViewCommand}"/>
                 <RadioButton Content="Tasks"
                              Height="50"
                              Foreground="White"
@@ -64,15 +70,39 @@
                              Style="{StaticResource RadioBtnTheme1}"/>
             </StackPanel>
 
-            <TextBox Width="250"
+            <StackPanel Grid.Column="1"
+                        Grid.Row="0"
+                        Orientation="Horizontal" 
+                        Background="Transparent"
+                        MouseDown="DragWindow">
+                <TextBox x:Name="SearchBox"
+                     Width="250"
                      Height="40"
                      VerticalContentAlignment="Center"
                      HorizontalAlignment="Left"
-                     Margin="5"
-                     Grid.Column="1"
+                     Margin="5,15,0,0"
                      Style="{StaticResource SearchBoxTheme1}"/>
+                <Button Content="-"
+                        Height="40"
+                        Width="50"
+                        Margin="320,0,0,0"
+                        Style="{StaticResource WindContBtnTheme}"
+                        Click="Minimize">
+                </Button>
+
+                <Button Content="x"
+                        Height="40"
+                        Width="50"
+                        Margin="5,0,0,0"
+                        Style="{StaticResource WindContBtnTheme}"
+                        Click="ExitProgram"/>
+            </StackPanel>
+
+            <ContentControl Grid.Row="1"
+                            Grid.Column="1"
+                            Margin="10"
+                            Content="{Binding CurrentView}"/>
+
         </Grid>
-
-
     </Border>
 </Window>
